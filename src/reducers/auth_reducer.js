@@ -40,7 +40,7 @@ const INITIAL_STATE: Map = fromJS({
 
 const onAuthUser = (state, action): Map => {
   const { payload } = action;
-  return state.set('userData', payload).set('authIsLoading', false);
+  return state.set('userData', payload).set('authIsLoading', false).set('authError', undefined)
 };
 
 const onAuthInProgress = (state): Map => {

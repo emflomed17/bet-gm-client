@@ -6,7 +6,7 @@ import {
   getAuthError,
 } from "../../../selectors";
 import { loginUser } from "../../../actions/auth/auth-actions";
-import { View, SafeAreaView, StyleSheet, TouchableOpacity } from "react-native";
+import { View, SafeAreaView, StyleSheet, TouchableOpacity, ActivityIndicator } from "react-native";
 import {
   Container,
   Header,
@@ -29,7 +29,7 @@ import styles from "./styles";
 import { BetIcon } from "../../icons/index";
 import colors from "../../../res/colors/index";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 
   const dispatch = useDispatch();
   const { isLoading, userData, authError } = useSelector(
@@ -46,20 +46,22 @@ const LoginScreen = () => {
 
   useEffect(() => {
     function handleStartSession() {
-      console.log(`isLoading: ${isLoading}`);
-      console.log(`${userData}`);
-      console.log(`authError: ${authError}`);
+      // console.log(`isLoading: ${isLoading}`);
+      // console.log(userData);
+      // console.log(`authError: ${authError}`);
+      // console.log(authError);
       if (!isLoading && userData) {
         console.log("Credenciales Correctas!");
+        navigation.navigate('Apuestas')
       }
     }
     handleStartSession();
   }, [isLoading, userData, email]);
 
   const handleLogin = () => {
-    console.log("entro");
-    console.log(email);
-    console.log(password);
+    if (email !== "" && password !== "") {
+      dispatch(loginUser({ email, password }));
+    }
   };
 
   return (
@@ -73,7 +75,7 @@ const LoginScreen = () => {
           <Form style={styles.inputsWrapper}>
             <Item stackedLabel>
               <Label>email</Label>
-              <Input onChangeText={(text) => setEmail(text)} />
+              <Input autoCapitalize="none" onChangeText={(text) => setEmail(text)} />
             </Item>
             <Item stackedLabel last>
               <Label>Password</Label>
@@ -82,11 +84,22 @@ const LoginScreen = () => {
                 secureTextEntry
               />
             </Item>
+            {authError && (
+              <View style={styles.errorContainer}>
+                <Text style={styles.errorMessage}>
+                  Email o Password son incorrectos{" "}
+                </Text>
+              </View>
+            )}
           </Form>
           <View style={styles.loginBottom}>
-            <Button full onPress={handleLogin}>
-              <Text>Login</Text>
-            </Button>
+          {isLoading ? (
+              <ActivityIndicator />
+            ) : (
+              <Button full onPress={handleLogin}>
+                <Text>Login</Text>
+              </Button>
+            )}
             <TouchableOpacity>
               <Text style={styles.forgotLinkText}>Olvidé mi contraseña</Text>
             </TouchableOpacity>
