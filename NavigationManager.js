@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from './src/components/screens/Home';
+import BetsScreen from './src/components/screens/Bets';
 import ProfileScreen from './src/components/screens/Profile';
 import NewsScreen from './src/components/screens/News';
 import LoginScreen from './src/components/screens/Login';
@@ -15,6 +15,7 @@ const NavigationManager = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Login' component={LoginScreen}/>
+        <Stack.Screen name='Apuestas' component={BetsScreen} />
       </Stack.Navigator>
       {/* <Tab.Navigator>
         <Tab.Screen name='Apuestas' component={HomeScreen} />
