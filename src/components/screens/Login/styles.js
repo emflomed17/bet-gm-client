@@ -32,5 +32,11 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     textDecorationLine: 'underline',
   },
+  errorContainer: {
+    paddingTop: 10
+  },
+  errorMessage: {
+    color: 'red'
+  }
 });
 export default styles;
