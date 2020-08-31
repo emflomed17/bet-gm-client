@@ -1,0 +1,16 @@
+[ignore]
+
+[include]
+
+[libs]
+flow-typed
+node_modules/immutable/dist/immutable.js.flow
+
+[lints]
+
+[options]
+
+[strict]
+
+[untyped]
+.*/node_modules/react-native

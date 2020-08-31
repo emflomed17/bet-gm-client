@@ -1,0 +1,15 @@
+{
+  "overrides": [
+    {
+      "files": "*.js",
+      "options": {
+        "parser": "flow"
+      }
+    }
+  ],
+  "printWidth": 100,
+  "parser": "babel-flow",
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none"
+}

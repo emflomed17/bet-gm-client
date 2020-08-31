@@ -1,5 +1,4 @@
-import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -33,10 +32,10 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   errorContainer: {
-    paddingTop: 10
+    paddingTop: 10,
   },
   errorMessage: {
-    color: 'red'
-  }
-});
-export default styles;
+    color: 'red',
+  },
+})
+export default styles

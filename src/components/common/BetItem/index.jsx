@@ -1,29 +1,20 @@
 // @flow
-import React, { useEffect } from "react";
-import {
-  Container,
-  Header,
-  Content,
-  Card,
-  CardItem,
-  Body,
-  Text,
-  Icon,
-} from "native-base";
-import { View, TouchableOpacity } from "react-native";
-import styles from "./styles";
-import colors from "../../../res/colors";
-import { RightArrowIcon } from "../../icons";
+import React, { useEffect } from 'react'
+import { Container, Header, Content, Card, CardItem, Body, Text, Icon } from 'native-base'
+import { View, TouchableOpacity } from 'react-native'
+import styles from './styles'
+import colors from '../../../res/colors'
+import { RightArrowIcon } from '../../icons'
 
 type Props = {
   betName: string,
-  status: Number,
-  sportId: Number,
-  betOdd: Number,
-};
+  status: number,
+  betSport: number,
+  betOdd: number
+}
 
 const BetItem = (props: Props) => {
-  const { betName, status, betSport, betOdd } = props;
+  const { betName, status, betSport, betOdd } = props
   return (
     <Card>
       <CardItem>
@@ -46,7 +37,7 @@ const BetItem = (props: Props) => {
         </Body>
       </CardItem>
     </Card>
-  );
-};
+  )
+}
 
-export default BetItem;
+export default BetItem
